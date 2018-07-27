@@ -4,7 +4,7 @@ export DEBIAN_FRONTEND="noninteractive"
 
 echo "Set root user password for database"
 read pass
-echo "Enter Databses name for Emienent Personality Portal"
+echo "Enter Database name for Emienent Personality Portal"
 read dbname
 
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $pass"
@@ -41,9 +41,6 @@ sudo sed -i '17i\        </Directory>'  /etc/apache2/sites-enabled/000-default.c
 #!/bin/bash
 
 ##Download and place codebase on Server
-cd $HOME
-wget https://github.com/nvli-epp/EPP-Deployer/archive/master.zip
-unzip master.zip
 sudo mkdir /var/www/eminentpp
 cd $HOME/EPP-Deployer-master
 sudo cp ./docroot.tar.gz /var/www/eminentpp/
